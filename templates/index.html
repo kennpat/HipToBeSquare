@@ -4,15 +4,28 @@
 	</head>
 	<body>
 		What team are you going to see tonight?
-
-		<select id="TeamName">
+	<form name = "TeamName" method='POST'> 
+		<select name="TeamName">
    			<option hidden="true">Please select a name</option>
     		<option value="Red Sox">Red Sox</option>
     		<option value="Bruins">Bruins</option>
     		<option value="Celtics">Celtics</option>
     		<option value="Patriots">Patriots</option>
-			</select, team = "TeamName">
-			
+		</select, team = "TeamName">
+		
+		<button type="submit"> Submit </button>
+	</form>
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			Results:
+			<pre>
+					{% for messages in messages %}
+{{messages}}
+					{% endfor %}
+			</pre>
+		{% endif %}
+	{% endwith %}
 
 	</body>
 
